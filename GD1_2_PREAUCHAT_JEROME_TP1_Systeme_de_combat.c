@@ -8,7 +8,6 @@ int main (){
 	int pointsDeVieMonstre = 100;
 	int attaqueJoueur = 14;
 	int attaqueMonstre = 20;
-	int contreAttaque = 0;
 	int decisionJoueur = 0;
 	int decisionMonstre = 0;
 	int PointsDeManaJoueur = 10;
@@ -18,10 +17,13 @@ int main (){
 	
 	srand(time(NULL));
 
+    // Boucle qui va répéter les combats jusqu'à ce que le monstre où le joueur meurt
 	while(pointsDeVieMonstre>0 && pointsDeVieJoueur>0){
 		printf ("\n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n Empoisonner le monstre (3) \n Utiliser l'antidote (4) \n");
 		scanf("%d",&decisionJoueur);
 		decisionMonstre =((rand()%3)+1);
+        
+        // Décisions du joueur
         
 		if(decisionJoueur == 1){
 			printf("\nVous decidez d'attaquer le monstre. \n");
@@ -34,13 +36,15 @@ int main (){
 			
 		}
         
+        // Empoisonnement, vérifie que le Joueur ait bien 4 de mana 
 		if (decisionJoueur == 3 && PointsDeManaJoueur>=4){
 			printf("Vous empoisonnez le monstre.\n");
 			poisonJoueur = poisonJoueur +4;
 			PointsDeManaJoueur = PointsDeManaJoueur -4;
+            // Si le joueur n'a pas assez de mana, redemande l'action a effectuer
 			if(decisionJoueur == 3 && PointsDeManaJoueur<4){
 				printf ("Vous n'avez plus de mana et vous ne pouvez empoisonner le monstre. \n");
-				printf ("Voulez vous attaquer (1) \n Vous vous defendre (2) \n Empoisonner le monstre (3).\n");
+				printf ("Voulez vous attaquer (1) \n Vous vous defendre (2) \n");
 				scanf("%d",&decisionJoueur);
 			}
 		}
@@ -51,6 +55,8 @@ int main (){
 		}
 			
 	
+        // Décisions automatiques du monstre
+        
         if(decisionMonstre == 1){
 			printf("Le monstre vous attaque. \n");
 			pointsDeVieJoueur = pointsDeVieJoueur - attaqueMonstre;
@@ -70,6 +76,8 @@ int main (){
 			}
 		}
         
+        // Enclenchement des dégats du poison Joueur et Monstre
+        
         if (poisonJoueur >= 1){
             pointsDeVieMonstre = pointsDeVieMonstre - poisonJoueur;
         }
@@ -77,6 +85,8 @@ int main (){
             pointsDeVieJoueur = pointsDeVieJoueur - poisonMonstre;
         }
 
+        // Restauration des points de mana Joueur et Monstre
+        
         if (PointsDeManaJoueur<10){
             PointsDeManaJoueur++;
         }
@@ -89,6 +99,8 @@ int main (){
         printf ("Vous avez %d points de vie. \n", pointsDeVieJoueur);
         printf ("Il reste %d points de vie au monstre. \n", pointsDeVieMonstre);
         
+        // Victoire ou Défaite
+        
         if (pointsDeVieMonstre<=0){
             printf("\nVous avez Vaincu le monstre ! \n");
         }
@@ -97,6 +109,7 @@ int main (){
             printf("\nVous etes mort ! \n");
         }
         
+        // Rénitialisation des variables d'attaque
         attaqueJoueur = 14;
 	    attaqueMonstre = 20;
 		
