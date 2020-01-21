@@ -25,15 +25,15 @@ int main (){
 		decisionMonstre =((rand()%3)+1);
 		
 		if (decisionJoueur == 4){
-			printf("Vous utilisez votre antidote, vous n'etes plus empoisonne");
+			printf("Vous avez utilise votre antidote et vous n'etes plus empoisonne");
 			poisonMonstre = 0;
 		}
 			
-		if (decisionJoueur == 3 && PointsDeManaJoueur>=3){
+		if (decisionJoueur == 4 && PointsDeManaJoueur>=4){
 			printf("Vous empoisonnez le monstre.\n");
 			poisonJoueur ++;
-			PointsDeManaJoueur = PointsDeManaJoueur -3;
-			if(decisionJoueur == 3 && PointsDeManaJoueur<3){
+			PointsDeManaJoueur = PointsDeManaJoueur -4;
+			if(decisionJoueur == 3 && PointsDeManaJoueur<4){
 				printf ("Vous n'avez plus de mana et vous ne pouvez empoisonner le monstre. \n");
 				printf ("Voulez vous attaquer (1) ou vous vous defendre (2) .\n");
 				scanf("%d",&decisionJoueur);
@@ -53,13 +53,13 @@ int main (){
 			
 		if (decisionMonstre == 2){
 			printf("Le monstre se defend.\n");
-			attaqueJoueur = attaqueJoueur/4;
+			attaqueJoueur = attaqueJoueur/5;
 				
 		}
 		
 		if (decisionJoueur == 2){
 			printf("Vous avez decide de vous defendre.\n");
-			attaqueMonstre = attaqueMonstre/4;
+			attaqueMonstre = attaqueMonstre/5;
 			
 		}
 		
@@ -75,10 +75,10 @@ int main (){
 			
 		}
 	
-	if(poisonJoueur >= 1){
+	if (poisonJoueur >= 1){
 		pointsDeVieMonstre = pointsDeVieMonstre - poisonJoueur;
 	}
-	if(poisonMonstre >= 1){
+	if (poisonMonstre >= 1){
 		pointsDeVieJoueur = pointsDeVieJoueur - poisonMonstre;
 	}
 		
@@ -91,19 +91,14 @@ int main (){
 		PointsDeManaMonstre++;
 	}
 	
-	printf ("Il vous reste %d points de mana.\n", PointsDeManaJoueur);
-	printf ("Le monstre a %d points de vie.\n", pointsDeVieMonstre);
-	printf ("Il vous reste %d points de vie.\n", pointsDeVieJoueur);
+	printf ("Vous avez %d points de mana. \n", PointsDeManaJoueur);
+	printf ("Vous avez %d points de vie. \n", pointsDeVieJoueur);
+    printf ("Il reste %d points de vie au monstre. \n", pointsDeVieMonstre);
 	
-	attaqueMonstre = 11;
-	attaqueJoueur = 10;
+	attaqueMonstre = 16;
+	attaqueJoueur = 14;
 	
 		
 	}	
-	
-	
-	
-
-
 	return 0;
 }
