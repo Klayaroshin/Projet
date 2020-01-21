@@ -4,6 +4,9 @@
 
 
 int main (){
+    
+    // VARIABLES
+    
     int pointsDeVieJoueur = 100;
 	int pointsDeVieMonstre = 100;
 	int attaqueJoueur = 14;
@@ -21,15 +24,18 @@ int main (){
 	while(pointsDeVieMonstre>0 && pointsDeVieJoueur>0){
 		printf ("\n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n Empoisonner le monstre (3) \n Utiliser l'antidote (4) \n");
 		scanf("%d",&decisionJoueur);
+        // Affecte une valeur aléatoire pour déterminer la décision du monstre
 		decisionMonstre =((rand()%3)+1);
         
-        // Décisions du joueur
+        // DECISIONS DU JOUEUR
         
+        // Attaque
 		if(decisionJoueur == 1){
 			printf("\nVous decidez d'attaquer le monstre. \n");
 			pointsDeVieMonstre = pointsDeVieMonstre - attaqueJoueur;
         }
         
+        // Défense, divise par 4 les dégats
 		if (decisionJoueur == 2){
 			printf("Vous avez decide de vous defendre.\n");
 			attaqueMonstre = attaqueMonstre/4;
@@ -49,28 +55,32 @@ int main (){
 			}
 		}
         
+        // Utilisation Antidote
 		if (decisionJoueur == 4){
 			printf("Vous avez utilise votre antidote et vous n'etes plus empoisonne \n");
 			poisonMonstre = 0;
 		}
 			
 	
-        // Décisions automatiques du monstre
+        // DECISIONS AUTOMATIQUES DU MONSTRE
         
+        // Attaque
         if(decisionMonstre == 1){
 			printf("Le monstre vous attaque. \n");
 			pointsDeVieJoueur = pointsDeVieJoueur - attaqueMonstre;
 		}
         
+        // Défense
 		if (decisionMonstre == 2){
 			printf("Le monstre se defend.\n");
 			attaqueJoueur = attaqueJoueur/4;	
 		}
         
-		if (decisionMonstre == 3 && PointsDeManaMonstre>=3){
+        // Empoisonnement
+		if (decisionMonstre == 3 && PointsDeManaMonstre>=4){
 			printf("Le monstre vous empoisonne. \n");
 			poisonMonstre = poisonMonstre +4;
-			PointsDeManaMonstre = PointsDeManaMonstre -3;
+			PointsDeManaMonstre = PointsDeManaMonstre -4;
 			if(decisionMonstre == 3 && PointsDeManaMonstre<3){
 				(decisionMonstre =((rand()%2)+1));
 			}
@@ -95,6 +105,7 @@ int main (){
             PointsDeManaMonstre++;
         }
 
+        // Affichage des statistiques a la fin d'un tour
         printf ("Vous avez %d points de mana. \n", PointsDeManaJoueur);
         printf ("Vous avez %d points de vie. \n", pointsDeVieJoueur);
         printf ("Il reste %d points de vie au monstre. \n", pointsDeVieMonstre);
