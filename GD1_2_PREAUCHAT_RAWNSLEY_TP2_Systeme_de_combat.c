@@ -187,7 +187,7 @@ int main (){
         if (poisonMonstreSoigneur >= 1){
             pvSoigneur = pvSoigneur - poisonMonstreSoigneur;
         }
-        // Restauration des points de mana Joueur et Monstre
+        // Restauration des points de mana Joueur et Monstre.
 
         if (PointsDeManaJoueur<10){
             PointsDeManaJoueur++;
