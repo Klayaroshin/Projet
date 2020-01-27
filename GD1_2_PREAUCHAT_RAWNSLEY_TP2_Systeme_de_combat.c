@@ -51,7 +51,7 @@ int main (){
 			
 		}
         
-        // Empoisonnement, vérifie que le Joueur ait bien 4 de mana 
+        // Empoisonnement, vérifie que le Joueur ait bien 4 de mana
 		if (decisionJoueur == 3 && PointsDeManaJoueur>=4){
 			printf("Joueur1 empoisonne le monstre.\n");
 			poisonJoueur = poisonJoueur +4;
