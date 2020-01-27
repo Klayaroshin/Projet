@@ -33,7 +33,7 @@ int main (){
 	while(pointsDeVieMonstre>0 && pointsDeVieJoueur>0 && pvTank>0 && pointsDeVieMage >0){
 		printf ("\n C'est au tour de Joueur 1. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n Empoisonner le monstre (3) \n Utiliser l'antidote (4) \n");
 		scanf("%d",&decisionJoueur);
-		printf ("\n C'est au tour du Tank. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n");
+		printf ("\n C'est au tour du Tank. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre et aggro (2) \n");
 		scanf("%d",&decisionTank);
     printf ("\n C'est au tour du Mage. \n Effectuez l'action a realiser \n \n Voulez vous lancer une boule de feu (1) \n Vous defendre (2) \n");
 		scanf("%d",&decisionMage);
@@ -129,6 +129,8 @@ int main (){
 		if (decisionMonstre == 2){
 			printf("Le monstre se defend.\n");
 			attaqueJoueur = attaqueJoueur/4;
+      attaqueMage = attaqueMage/2
+      attaqueTank = attaqueTank/4
 		}
 
         // Empoisonnement Joueur1
@@ -194,14 +196,19 @@ int main (){
             printf("\nLe Joueur1 est mort ! \n");
         }
 
+        if (pvTank<=0){
+            printf("\nLe Tank est mort ! \n");
+        }
+
         if (pointsDeVieMage<=0){
             printf("\nLe Mage est mort ! \n");
         }
 
         // Rénitialisation des variables d'attaque
         attaqueJoueur = 14;
+        attaqueTank = 8;
         attaqueJoueur = 16;
-	    attaqueMonstre = 20;
+	      attaqueMonstre = 20;
 
     }
 	return 0;
