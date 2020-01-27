@@ -101,7 +101,8 @@ int main (){
         // Défense
 		if (decisionMonstre == 2){
 			printf("Le monstre se defend.\n");
-			attaqueJoueur = attaqueJoueur/4;	
+			attaqueJoueur = attaqueJoueur/4;
+            attaqueTank = attaqueTank/4;
 		}
         
         // Empoisonnement Joueur1
@@ -159,12 +160,13 @@ int main (){
         }
 
         if (pointsDeVieJoueur<=0){
-            printf("\nVous etes mort ! \n");
+            printf("\nC'est la mort ! \n");
         }
         
         // Rénitialisation des variables d'attaque
         attaqueJoueur = 14;
 	    attaqueMonstre = 20;
+        attaqueTank = 8;
 		
     }	
 	return 0;
