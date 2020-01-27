@@ -19,7 +19,7 @@ int main (){
   int decisionMage = 0;
 
   int pointsDeVieJoueur = 100;
-	int pointsDeVieMonstre = 100;
+	int pointsDeVieMonstre = 300;
 	int attaqueJoueur = 14;
 	int attaqueMonstre = 20;
 	int decisionJoueur = 0;
@@ -40,7 +40,7 @@ int main (){
 		printf ("\n C'est au tour de Joueur 1. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n Empoisonner le monstre (3) \n Utiliser l'antidote (4) \n");
 		scanf("%d",&decisionJoueur);
 
-		printf ("\n C'est au tour du Tank. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n");
+		printf ("\n C'est au tour du Tank. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre et aggro le monstre(2) \n");
 		scanf("%d",&decisionTank);
 
 		printf ("\n C'est au tour du Soigneur. \n Effectuez l'action a realiser \n \n Voulez vous soigner Joueur (1) \n Voulez vous soigner Tank (2) \n Vous soigner vous meme (3) \n");
@@ -97,8 +97,9 @@ int main (){
 
 	    // Défense du Tank, degats divisé par 6
 		if (decisionTank == 2){
-			printf("Tank se défend.\n");
+			printf("Tank se defend et prend l'aggro du monstre.\n");
 			attaqueMonstre = attaqueMonstre/6;
+      decisionMonstreAttaque = 2;
 
 		}
 
@@ -112,7 +113,7 @@ int main (){
 
       // Défense du Tank, degats divisé par 6
       if (decisionMage == 2){
-        printf("Mage se défend.\n");
+        printf("Mage se defend.\n");
         attaqueMonstre = attaqueMonstre/2;
 
       }
