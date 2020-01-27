@@ -21,7 +21,11 @@ int main (){
 	int poisonJoueur = 0;
 	int poisonMonstreJoueur = 0;
 	int poisonMonstreTank = 0;
+  int poisonMonstreMage =0;
 	int decisionMonstreAttaque = 0;
+  int attaqueMage = 16;
+  int decisionMage = 0;
+
 
 	srand(time(NULL));
 
@@ -31,8 +35,8 @@ int main (){
 		scanf("%d",&decisionJoueur);
 		printf ("\n C'est au tour du Tank. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n");
 		scanf("%d",&decisionTank);
-    printf ("\n C'est au tour du Mage. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n Lancer une boule de feu (3) \n");
-		scanf("%d",&decisionJoueur);
+    printf ("\n C'est au tour du Mage. \n Effectuez l'action a realiser \n \n Voulez vous lancer une boule de feu (1) \n Vous defendre (2) \n");
+		scanf("%d",&decisionMage);
 
         // Affecte une valeur aléatoire pour déterminer la décision du monstre
 		decisionMonstre =((rand()%3)+1);
@@ -72,6 +76,21 @@ int main (){
 			poisonMonstreJoueur = 0;
 		}
 
+    //DECISIONS DU MAGE
+
+    // Attaque mage
+    if(decisionMage == 1){
+      printf("\nMage lance une boue de feu. \n");
+      pointsDeVieMonstre = pointsDeVieMonstre - attaqueMage;
+      }
+
+      // Défense du Tank, degats divisé par 6
+      if (decisionMage == 2){
+        printf("Mage se défend.\n");
+        attaqueMonstre = attaqueMonstre/2;
+
+      }
+
 		// DECISIONS DU TANK
 
         // Attaque Tank
@@ -99,6 +118,12 @@ int main (){
 			printf("Le monstre attaque Tank. \n");
 			pvTank = pvTank - attaqueMonstre;
 		}
+
+    // Attaque contre Mage
+    if(decisionMonstre == 1 && decisionMonstreAttaque == 3){
+      printf("Le monstre attaque Tank. \n");
+      pointsDeVieMage = pointsDeVieMage - attaqueMonstre;
+    }
 
         // Défense
 		if (decisionMonstre == 2){
@@ -138,6 +163,10 @@ int main (){
         if (poisonMonstreTank >= 1){
             pvTank = pvTank - poisonMonstreTank;
         }
+
+        if (poisonMonstreMage >= 1){
+            pointsDeVieMage = pointsDeVieMage - poisonMonstreMage;
+        }
         // Restauration des points de mana Joueur et Monstre
 
         if (PointsDeManaJoueur<10){
@@ -152,6 +181,7 @@ int main (){
         printf ("Le joueur1 a %d points de mana. \n", PointsDeManaJoueur);
         printf ("Le joueur1 a %d points de vie. \n", pointsDeVieJoueur);
         printf ("Le Tank a %d points de vie. \n", pvTank);
+        printf ("Le Mage a %d points de vie. \n", pointsDeVieMage);
         printf ("Il reste %d points de vie au monstre. \n", pointsDeVieMonstre);
 
         // Victoire ou Défaite
@@ -161,11 +191,16 @@ int main (){
         }
 
         if (pointsDeVieJoueur<=0){
-            printf("\nVous etes mort ! \n");
+            printf("\nLe Joueur1 est mort ! \n");
+        }
+
+        if (pointsDeVieMage<=0){
+            printf("\nLe Mage est mort ! \n");
         }
 
         // Rénitialisation des variables d'attaque
         attaqueJoueur = 14;
+        attaqueJoueur = 16;
 	    attaqueMonstre = 20;
 
     }
