@@ -10,6 +10,8 @@ int main (){
 	int attaqueTank = 8;
 	int decisionTank = 0;
 
+  int pointDevieMonstre2 = 100;
+
   int pvSoigneur = 200;
 	int soin = 8;
 	int decisionSoigneur = 0;
