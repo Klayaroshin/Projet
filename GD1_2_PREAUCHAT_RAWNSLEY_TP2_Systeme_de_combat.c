@@ -255,13 +255,13 @@ int main (){
 
   // Attaque contre Soigneur
   if(decisionMonstre2 == 1 && decisionMonstre2Attaque == 3){
-    printf("Le monstre attaque Soigneur. \n");
+    printf("Le monstre2 attaque Soigneur. \n");
     pvSoigneur = pvSoigneur - attaqueMonstre2;
     }
 
   // Attaque contre Mage
   if(decisionMonstre2 == 1 && decisionMonstre2Attaque == 4){
-    printf("Le monstre attaque Mage. \n");
+    printf("Le monstre2 attaque Mage. \n");
     pointsDeVieMage = pointsDeVieMage - attaqueMonstre2;
   }
 
