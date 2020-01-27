@@ -39,7 +39,7 @@ int main (){
 		scanf("%d",&decisionMage);
 
         // Affecte une valeur aléatoire pour déterminer la décision du monstre
-		decisionMonstre =((rand()%3)+1);
+		decisionMonstre =((rand()%4)+1);
 		decisionMonstreAttaque = ((rand()%2)+1);
 
         // DECISIONS DU JOUEUR
@@ -114,13 +114,13 @@ int main (){
 		}
 
 		// Attaque contre Tank
-		if(decisionMonstre == 1 && decisionMonstreAttaque == 2){
+		if(decisionMonstre == 2 && decisionMonstreAttaque == 2){
 			printf("Le monstre attaque Tank. \n");
 			pvTank = pvTank - attaqueMonstre;
 		}
 
     // Attaque contre Mage
-    if(decisionMonstre == 1 && decisionMonstreAttaque == 3){
+    if(decisionMonstre == 3 && decisionMonstreAttaque == 3){
       printf("Le monstre attaque Tank. \n");
       pointsDeVieMage = pointsDeVieMage - attaqueMonstre;
     }
