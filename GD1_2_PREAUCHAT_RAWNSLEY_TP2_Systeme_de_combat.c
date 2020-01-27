@@ -25,7 +25,7 @@ int main (){
 	
 	srand(time(NULL));
 
-    // Boucle qui va répéter les combats jusqu'à ce que le monstre où le joueur meurt
+    // Boucle qui va répéter les combats jusqu'à ce que le monstre, le tank où le joueur meurt
 	while(pointsDeVieMonstre>0 && pointsDeVieJoueur>0 && pvTank>0){
 		printf ("\n C'est au tour de Joueur 1. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n Empoisonner le monstre (3) \n Utiliser l'antidote (4) \n");
 		scanf("%d",&decisionJoueur);
