@@ -31,6 +31,8 @@ int main (){
 		scanf("%d",&decisionJoueur);
 		printf ("\n C'est au tour du Tank. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n");
 		scanf("%d",&decisionTank);
+    printf ("\n C'est au tour du Mage. \n Effectuez l'action a realiser \n \n Voulez vous attaquer (1) \n Vous defendre (2) \n Lancer une boule de feu (3) \n");
+		scanf("%d",&decisionJoueur);
 
         // Affecte une valeur aléatoire pour déterminer la décision du monstre
 		decisionMonstre =((rand()%3)+1);
