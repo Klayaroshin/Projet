@@ -62,7 +62,7 @@ int main (){
     }
 
     if (pvSoigneur>0){
-		printf ("\n C'est au tour du Soigneur. \n Effectuez l'action a realiser \n \n Voulez vous soigner Joueur (1) \n Voulez vous soigner Tank (2) \n Vous soigner vous meme (3) \n");
+		printf ("\n C'est au tour du Soigneur. \n Effectuez l'action a realiser \n \n Voulez vous soigner Joueur (1) \n Voulez vous soigner Tank (2) \n Vous soigner vous meme (3) \n Soigner le Mage (4) \n");
 		scanf("%d",&decisionSoigneur);
     }
     else{
@@ -195,6 +195,12 @@ int main (){
   if (decisionSoigneur == 3){
     printf("Soigneur se soigne lui meme.\n");
     pvSoigneur = pvSoigneur + soin;
+  }
+
+    // Soin Soigneur
+  if (decisionSoigneur == 4){
+    printf("Soigneur soigne le Mage.\n");
+    pointsDeVieMage = pointsDeVieMage + soin;
   }
 
         // DECISIONS AUTOMATIQUES DU MONSTRE
