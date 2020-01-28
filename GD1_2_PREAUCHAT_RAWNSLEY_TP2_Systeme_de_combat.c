@@ -40,6 +40,17 @@ int main (){
   int poisonMonstreSoigneur = 0;
   int poisonMonstreMage = 0;
 
+  int xpMage = 0;
+  int xpTank = 0;
+  int xpSoigneur = 0;
+  int xpJoueur = 0;
+
+  int lvlMage = 0;
+  int lvlTank = 0;
+  int lvlSoigneur = 0;
+  int lvlJoueur = 0;
+
+
 	srand(time(NULL));
 
     // Boucle qui va répéter les combats jusqu'à ce que le monstre, le tank, le soigneur où le joueur meurt
@@ -69,6 +80,7 @@ int main (){
       printf("Le Soigneur est mort et ne peut plus soigner\n");
     }
 
+
     if (pointsDeVieMage>0){
     printf ("\n C'est au tour du Mage. \n Effectuez l'action a realiser \n \n Voulez vous lancer une boule de feu sur Monstre 1 (1) \n Vous defendre (2) \n Attaquer Monstre 2 (3)\n");
 		scanf("%d",&decisionMage);
@@ -76,6 +88,17 @@ int main (){
     else{
       printf("Le Mage est Mort et ne peut plus attaquer\n");
     }
+
+
+
+    if (pointsDeVieMage>0){
+    printf ("\n C'est au tour du Mage. \n Effectuez l'action a realiser \n \n Voulez vous lancer une boule de feu sur Monstre 1 (1) \n Vous defendre (2) \n Attaquer Monstre 2 (3)\n");
+		scanf("%d",&decisionMage);
+    }
+    else{
+      printf("Le Mage est Mort et ne peut plus attaquer\n");
+    }
+
 
         // Affecte une valeur aléatoire pour déterminer la décision des monstres
     if (pointsDeVieMonstre>0){
@@ -102,12 +125,14 @@ int main (){
 		if(decisionJoueur == 1){
 			printf("\nJoueur 1 attaque le monstre \n");
 			pointsDeVieMonstre = pointsDeVieMonstre - attaqueJoueur;
+      xpJoueur += 10;
         }
 
         // Défense, divise par 4 les dégats
 		if (decisionJoueur == 2){
 			printf("Joueur1 se défend.\n");
 			attaqueMonstre = attaqueMonstre/4;
+      xpJoueur =+ 5;
 
 		}
 
@@ -128,12 +153,17 @@ int main (){
 		if (decisionJoueur == 4){
 			printf("Vous avez utilise votre antidote et vous n'etes plus empoisonne \n");
 			poisonMonstreJoueur = 0;
+      xpJoueur =+ 2;
 		}
 
         // Attaque Monstre 2
     if(decisionJoueur == 5){
 			printf("\nJoueur 1 attaque le monstre 2 \n");
 			pvMonstre2 = pvMonstre2 - attaqueJoueur;
+
+      xpJoueur += 10;
+
+
     }
 
 		// DECISIONS DU TANK
@@ -142,6 +172,10 @@ int main (){
 		if(decisionTank == 1){
 			printf("\nTank attaque le monstre. \n");
 			pointsDeVieMonstre = pointsDeVieMonstre - attaqueTank;
+
+      xpTank += 10;
+
+
     }
 
 	    // Défense du Tank, degats divisé par 6
@@ -150,12 +184,20 @@ int main (){
 			attaqueMonstre = attaqueMonstre/6;
       decisionMonstreAttaque = 2;
       decisionMonstre2Attaque = 2;
+
+      xpTank += 5;
+
+
 		}
 
     // Attaque Tank sur monstre 2
 		if(decisionTank == 3){
 			printf("\nTank attaque le monstre2. \n");
 			pvMonstre2 = pvMonstre2 - attaqueTank;
+
+      xpTank += 10;
+
+
     }
     //DECISIONS DU MAGE
 
@@ -163,18 +205,30 @@ int main (){
     if(decisionMage == 1){
       printf("\nMage lance une boue de feu. \n");
       pointsDeVieMonstre = pointsDeVieMonstre - attaqueMage;
+
+      xpMage += 10;
+
+
       }
 
       // Défense du Tank, degats divisé par 6
       if (decisionMage == 2){
         printf("Mage se defend.\n");
         attaqueMonstre = attaqueMonstre/2;
+
+        xpMage += 5;
+
+
       }
 
       // Attaque mage
       if(decisionMage == 3){
         printf("\nMage lance une boue de feu sur Monstre 2. \n");
         pvMonstre2 = pvMonstre2 - attaqueMage;
+
+        xpMage += 10;
+
+
       }
 
 		// DECISIONS DU SOIGNEUR
@@ -183,18 +237,28 @@ int main (){
 		if(decisionSoigneur == 1){
 			printf("\nSoigneur soigne Joueur 1. \n");
 			pointsDeVieJoueur = pointsDeVieJoueur + soin;
+      xpSoigneur += 10;
     }
 
 	    // Soin Tank
 		if (decisionSoigneur == 2){
 			printf("Soigneur soigne Tank.\n");
 			pvTank = pvTank + soin;
+      xpSoigneur += 10;
 		}
 
     // Soin Soigneur
   if (decisionSoigneur == 3){
     printf("Soigneur se soigne lui meme.\n");
     pvSoigneur = pvSoigneur + soin;
+    xpSoigneur += 10;
+  }
+
+    // Soin Soigneur
+  if (decisionSoigneur == 4){
+    printf("Soigneur soigne le Mage.\n");
+    pointsDeVieMage = pointsDeVieMage + soin;
+    xpSoigneur += 10;
   }
 
     // Soin Soigneur
@@ -351,6 +415,41 @@ int main (){
         printf ("Le Mage a %d points de vie. \n", pointsDeVieMage);
         printf ("Il reste %d points de vie au monstre1. \n", pointsDeVieMonstre);
         printf ("Il reste %d points de vie au monstre2. \n", pvMonstre2);
+
+
+        // Affichage xp et lvl à la fin d'un attaqueJoueur
+        printf ("Mage a gagne %d xp. \n", xpMage);
+        printf ("Tank a gagne %d xp. \n", xpTank);
+        printf ("Soigneur a gagne %d xp. \n", xpSoigneur);
+        printf ("Joueur1 a gagne %d xp. \n", xpJoueur);
+
+        if (xpMage >=20){
+          lvlMage++;
+          xpMage -=20;
+            printf ("Mage est maintenant lvl %d. \n", lvlMage);
+        }
+
+        if (xpTank >=20){
+          lvlTank++;
+          xpTank -=20;
+            printf ("Tank est maintenant lvl %d. \n", lvlTank);
+        }
+
+        if (xpSoigneur >=20){
+          lvlSoigneur++;
+          xpSoigneur -=20;
+            printf ("Soigneur est maintenant lvl %d. \n", lvlSoigneur);
+        }
+
+        if (xpJoueur >=20){
+          lvlJoueur++;
+          xpJoueur -=20;
+            printf ("Joueur est maintenant lvl %d. \n", lvlJoueur);
+        }
+
+
+
+
 
         // Victoire ou Défaite
 
