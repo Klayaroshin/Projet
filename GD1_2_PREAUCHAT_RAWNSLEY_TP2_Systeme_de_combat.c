@@ -54,7 +54,7 @@ int main (){
     }
 
     if (pvTank>0){
-		printf ("\n C'est au tour du Tank. \n Effectuez l'action a realiser \n \n Voulez vous attaquer Monstre 1 (1) \n Vous defendre et aggro le monstre1 et monstre2(2) \n Attaquer Monstre 2 (3)\n");
+		printf ("\n C'est au tour du Tank. \n Effectuez l'action a realiser \n \n Voulez vous attaquer Monstre 1 (1) \n Vous defendre et aggro le monstre1 et monstre2 (2) \n Attaquer Monstre 2 (3)\n");
 		scanf("%d",&decisionTank);
     }
     else{
@@ -146,7 +146,7 @@ int main (){
 
 	    // Défense du Tank, degats divisé par 6
 		if (decisionTank == 2){
-			printf("Tank se defend et prend l'aggro du monstre.\n");
+			printf("Tank se defend et prend l'aggro.\n");
 			attaqueMonstre = attaqueMonstre/6;
       decisionMonstreAttaque = 2;
       decisionMonstre2Attaque = 2;
