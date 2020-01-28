@@ -43,7 +43,7 @@ int main (){
 	srand(time(NULL));
 
     // Boucle qui va répéter les combats jusqu'à ce que le monstre, le tank, le soigneur où le joueur meurt
-	while(pointsDeVieMonstre && pvMonstre2 >= 0){
+	while(pointsDeVieMonstre >0 && pvMonstre2 > 0){
 		printf ("\n C'est au tour de Joueur 1. \n Effectuez l'action a realiser \n \n Voulez vous attaquer Monstre 1 (1) \n Vous defendre (2) \n Empoisonner le monstre (3) \n Utiliser l'antidote (4) \n Attaquer Monstre 2 (5)\n");
 		scanf("%d",&decisionJoueur);
 
@@ -314,7 +314,7 @@ int main (){
 
         // Victoire ou Défaite
 
-        if (pointsDeVieMonstre<=0  && pvMonstre2<=0){
+        if (pointsDeVieMonstre<0  && pvMonstre2<0){
             printf("\nVous avez Vaincu les monstres ! \n");
         }
 
