@@ -90,16 +90,6 @@ int main (){
     }
 
 
-
-    if (pointsDeVieMage>0){
-    printf ("\n C'est au tour du Mage. \n Effectuez l'action a realiser \n \n Voulez vous lancer une boule de feu sur Monstre 1 (1) \n Vous defendre (2) \n Attaquer Monstre 2 (3)\n");
-		scanf("%d",&decisionMage);
-    }
-    else{
-      printf("Le Mage est Mort et ne peut plus attaquer\n");
-    }
-
-
         // Affecte une valeur aléatoire pour déterminer la décision des monstres
     if (pointsDeVieMonstre>0){
   		decisionMonstre = ((rand()%3)+1);
